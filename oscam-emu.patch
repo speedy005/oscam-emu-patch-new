@@ -171,7 +171,7 @@ index 03c70f7d..9b99c3c4 100644
        readers: READER_NAGRA READER_NAGRA_MERLIN READER_IRDETO READER_CONAX READER_CRYPTOWORKS READER_SECA READER_VIACCESS READER_VIDEOGUARD READER_DRE READER_TONGFANG READER_BULCRYPT READER_GRIFFIN READER_DGCRYPT
   card_readers: CARDREADER_PHOENIX CARDREADER_INTERNAL CARDREADER_SC8IN1 CARDREADER_MP35 CARDREADER_SMARGO CARDREADER_DB2COM CARDREADER_STAPI CARDREADER_STAPI5 CARDREADER_STINGER CARDREADER_DRECAS
 diff --git a/README.md b/README.md
-index 8d1c6e93..a7bb99a7 100644
+index 8d1c6e93..471994f7 100644
 --- a/README.md
 +++ b/README.md
 @@ -1,14 +1,18 @@
@@ -179,7 +179,7 @@ index 8d1c6e93..a7bb99a7 100644
 -============================================
 +OSCam-Emu: Open Source CAM with Emulator
 +========================================
-+[![build](https://github.com/oscam-emulator/oscam-emu/actions/workflows/build-oscam.yml/badge.svg)](https://github.com/oscam-emulator/oscam-emu/actions/workflows/build-oscam.yml)
++[![build](https://github.com/oscam-emulator/oscam-emu/actions/workflows/build-oscam.yml/badge.svg)](https://github.com/oscam-emulator/oscam-emu/actions/workflows/build-oscam.yml) [![sync](https://github.com/oscam-emulator/oscam-emu/actions/workflows/sync-gitlab.yml/badge.svg)](https://github.com/oscam-emulator/oscam-emu/actions/workflows/sync-gitlab.yml) [![patch](https://github.com/oscam-emulator/oscam-emu/actions/workflows/create-patch.yml/badge.svg)](https://github.com/oscam-emulator/oscam-emu/actions/workflows/create-patch.yml)
  
 +Wiki
 +====
