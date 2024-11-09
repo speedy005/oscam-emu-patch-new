@@ -171,7 +171,7 @@ index 03c70f7d..9b99c3c4 100644
        readers: READER_NAGRA READER_NAGRA_MERLIN READER_IRDETO READER_CONAX READER_CRYPTOWORKS READER_SECA READER_VIACCESS READER_VIDEOGUARD READER_DRE READER_TONGFANG READER_BULCRYPT READER_GRIFFIN READER_DGCRYPT
   card_readers: CARDREADER_PHOENIX CARDREADER_INTERNAL CARDREADER_SC8IN1 CARDREADER_MP35 CARDREADER_SMARGO CARDREADER_DB2COM CARDREADER_STAPI CARDREADER_STAPI5 CARDREADER_STINGER CARDREADER_DRECAS
 diff --git a/README.md b/README.md
-index 8d1c6e93..471994f7 100644
+index 8d1c6e93..13cc08c3 100644
 --- a/README.md
 +++ b/README.md
 @@ -1,14 +1,18 @@
@@ -179,7 +179,7 @@ index 8d1c6e93..471994f7 100644
 -============================================
 +OSCam-Emu: Open Source CAM with Emulator
 +========================================
-+[![build](https://github.com/oscam-emulator/oscam-emu/actions/workflows/build-oscam.yml/badge.svg)](https://github.com/oscam-emulator/oscam-emu/actions/workflows/build-oscam.yml) [![sync](https://github.com/oscam-emulator/oscam-emu/actions/workflows/sync-gitlab.yml/badge.svg)](https://github.com/oscam-emulator/oscam-emu/actions/workflows/sync-gitlab.yml) [![patch](https://github.com/oscam-emulator/oscam-emu/actions/workflows/create-patch.yml/badge.svg)](https://github.com/oscam-emulator/oscam-emu/actions/workflows/create-patch.yml)
++[![build](https://github.com/oscam-mirror/oscam-emu/actions/workflows/build-oscam.yml/badge.svg)](https://github.com/oscam-mirror/oscam-emu/actions/workflows/build-oscam.yml) [![sync](https://github.com/oscam-mirror/oscam-emu/actions/workflows/sync-gitlab.yml/badge.svg)](https://github.com/oscam-mirror/oscam-emu/actions/workflows/sync-gitlab.yml) [![patch](https://github.com/oscam-mirror/oscam-emu/actions/workflows/create-patch.yml/badge.svg)](https://github.com/oscam-mirror/oscam-emu/actions/workflows/create-patch.yml)
  
 +Wiki
 +====
@@ -213,7 +213,7 @@ index 8d1c6e93..471994f7 100644
 -OSCam history is accessible through Trac timeline at:
 -   https://git.streamboard.tv/common/oscam/-/commits/master
 +OSCam-Emu history is accessible through GitHub history at:
-+   https://github.com/oscam-emulator/oscam-emu/commits/master/
++   https://github.com/oscam-mirror/oscam-emu/commits/master/
  
  
  Repositories
@@ -221,7 +221,7 @@ index 8d1c6e93..471994f7 100644
  
  GIT repository:
 -   git clone https://git.streamboard.tv/common/oscam.git oscam
-+   git clone https://github.com/oscam-emulator/oscam-emu.git
++   git clone https://github.com/oscam-mirror/oscam-emu.git
  
  
 -Building OSCam from source
@@ -292,12 +292,12 @@ index 8d1c6e93..471994f7 100644
 -You may visit our Trac system for tracking and filling bug reports.
 -   https://git.streamboard.tv/common/oscam/-/issues/new
 +You may visit our GitHub system for tracking and filling bug reports.
-+   https://github.com/oscam-emulator/oscam-emu/issues/new
++   https://github.com/oscam-mirror/oscam-emu/issues/new
  
  If you experience any problems with OSCam, feel free to post in our support
  forum under (mainly German and English language) at:
 -   https://board.streamboard.tv/forum/
-+   https://github.com/oscam-emulator/oscam-emu/discussions
++   https://github.com/oscam-mirror/oscam-emu/discussions
  
  Configuration wiki:
 -   https://wiki.streamboard.tv/wiki/OSCam
@@ -418,7 +418,7 @@ index 8b6c309a..35f38c6c 100644
  
  #endif
 diff --git a/globals.h b/globals.h
-index 4e5781ad..be321540 100644
+index 4e5781ad..0bb166b6 100644
 --- a/globals.h
 +++ b/globals.h
 @@ -368,9 +368,9 @@
@@ -426,10 +426,10 @@ index 4e5781ad..be321540 100644
   *			constants
   * =========================== */
 -#define SCM_URL					"https://git.streamboard.tv/common/oscam"
-+#define SCM_URL					"https://github.com/oscam-emulator/oscam-emu"
++#define SCM_URL					"https://github.com/oscam-mirror/oscam-emu"
  #define WIKI_URL				"https://wiki.streamboard.tv/wiki"
 -#define BOARD_URL				"https://board.streamboard.tv"
-+#define BOARD_URL				"https://github.com/oscam-emulator/oscam-emu/discussions"
++#define BOARD_URL				"https://github.com/oscam-mirror/oscam-emu/discussions"
  #ifndef CS_VERSION
  #define CS_VERSION				"2.24.11-11847"
  #endif
