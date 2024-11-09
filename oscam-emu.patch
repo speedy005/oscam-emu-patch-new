@@ -171,7 +171,7 @@ index 03c70f7d..9b99c3c4 100644
        readers: READER_NAGRA READER_NAGRA_MERLIN READER_IRDETO READER_CONAX READER_CRYPTOWORKS READER_SECA READER_VIACCESS READER_VIDEOGUARD READER_DRE READER_TONGFANG READER_BULCRYPT READER_GRIFFIN READER_DGCRYPT
   card_readers: CARDREADER_PHOENIX CARDREADER_INTERNAL CARDREADER_SC8IN1 CARDREADER_MP35 CARDREADER_SMARGO CARDREADER_DB2COM CARDREADER_STAPI CARDREADER_STAPI5 CARDREADER_STINGER CARDREADER_DRECAS
 diff --git a/README.md b/README.md
-index 8d1c6e93..c3cacec5 100644
+index 8d1c6e93..a7bb99a7 100644
 --- a/README.md
 +++ b/README.md
 @@ -1,14 +1,18 @@
@@ -179,11 +179,11 @@ index 8d1c6e93..c3cacec5 100644
 -============================================
 +OSCam-Emu: Open Source CAM with Emulator
 +========================================
-+[![build](https://github.com/oscam-emu/oscam-patched/actions/workflows/build.yml/badge.svg)](https://github.com/oscam-emu/oscam-patched/actions/workflows/build.yml)
++[![build](https://github.com/oscam-emulator/oscam-emu/actions/workflows/build-oscam.yml/badge.svg)](https://github.com/oscam-emulator/oscam-emu/actions/workflows/build-oscam.yml)
  
 +Wiki
 +====
-+https://github.com/oscam-emu/oscam-patched/wiki
++https://git.streamboard.tv/common/oscam/-/wikis/home
  
  License
  =======
@@ -213,7 +213,7 @@ index 8d1c6e93..c3cacec5 100644
 -OSCam history is accessible through Trac timeline at:
 -   https://git.streamboard.tv/common/oscam/-/commits/master
 +OSCam-Emu history is accessible through GitHub history at:
-+   https://github.com/oscam-emu/oscam-patched/commits/master/
++   https://github.com/oscam-emulator/oscam-emu/commits/master/
  
  
  Repositories
@@ -221,7 +221,7 @@ index 8d1c6e93..c3cacec5 100644
  
  GIT repository:
 -   git clone https://git.streamboard.tv/common/oscam.git oscam
-+   git clone https://github.com/oscam-emu/oscam-patched.git
++   git clone https://github.com/oscam-emulator/oscam-emu.git
  
  
 -Building OSCam from source
@@ -236,7 +236,7 @@ index 8d1c6e93..c3cacec5 100644
 - - Run `make config` to choose the features you want.
 -
 - - Run `make` to compile OSCam.
-+https://github.com/oscam-emu/oscam-patched/wiki/Building-OSCam-Emu
++https://git.streamboard.tv/common/oscam/-/wikis/BuildingOscam
  
  For more information and examples on using the build system, please
  see README.build and README.config files.
@@ -270,22 +270,38 @@ index 8d1c6e93..c3cacec5 100644
    - libcrypto (libssl) - 'make USE_LIBCRYPTO=1'
    - libusb             - 'make USE_LIBUSB=1'
    - PCSC               - 'make USE_PCSC=1'
-@@ -104,12 +101,12 @@ Help and Support
+@@ -89,12 +86,10 @@ OSCam supports building with the following external dependencies:
+   - AZBOX support      - 'make USE_AZBOX=1'
+ 
+ For STAPI support you need to download liboscam_stapi.a library and place
+-it in stapi directory under oscam/ root dir. liboscam_stapi.a can be downloaded
+-from: https://board.streamboard.tv
++it in stapi directory under oscam/ root dir.
+ 
+ For STAPI5 support you need to download liboscam_stapi5.a library and place
+-it in stapi directory under oscam/ root dir. liboscam_stapi5.a can be downloaded
+-from: https://board.streamboard.tv
++it in stapi directory under oscam/ root dir.
+ 
+ For more information and examples on using the build system, run `make help`.
+ 
+@@ -104,12 +99,12 @@ Help and Support
  
  man pages and configuration examples are in Distribution/doc directory.
  
 -You may visit our Trac system for tracking and filling bug reports.
 -   https://git.streamboard.tv/common/oscam/-/issues/new
 +You may visit our GitHub system for tracking and filling bug reports.
-+   https://github.com/oscam-emu/oscam-patched/issues/new
++   https://github.com/oscam-emulator/oscam-emu/issues/new
  
  If you experience any problems with OSCam, feel free to post in our support
  forum under (mainly German and English language) at:
-    https://board.streamboard.tv/forum/
+-   https://board.streamboard.tv/forum/
++   https://github.com/oscam-emulator/oscam-emu/discussions
  
  Configuration wiki:
 -   https://wiki.streamboard.tv/wiki/OSCam
-+   https://github.com/oscam-emu/oscam-patched/wiki/OSCam-Emu-configuration
++   https://wiki.streamboard.tv/wiki/OSCam/de/Config/oscam.conf
 diff --git a/config.h b/config.h
 index f48ca1da..1139180d 100644
 --- a/config.h
@@ -402,18 +418,21 @@ index 8b6c309a..35f38c6c 100644
  
  #endif
 diff --git a/globals.h b/globals.h
-index 4e5781ad..2ca96226 100644
+index 4e5781ad..be321540 100644
 --- a/globals.h
 +++ b/globals.h
-@@ -368,7 +368,7 @@
+@@ -368,9 +368,9 @@
  /* ===========================
   *			constants
   * =========================== */
 -#define SCM_URL					"https://git.streamboard.tv/common/oscam"
-+#define SCM_URL					"https://github.com/oscam-emu/oscam-patched"
++#define SCM_URL					"https://github.com/oscam-emulator/oscam-emu"
  #define WIKI_URL				"https://wiki.streamboard.tv/wiki"
- #define BOARD_URL				"https://board.streamboard.tv"
+-#define BOARD_URL				"https://board.streamboard.tv"
++#define BOARD_URL				"https://github.com/oscam-emulator/oscam-emu/discussions"
  #ifndef CS_VERSION
+ #define CS_VERSION				"2.24.11-11847"
+ #endif
 @@ -406,14 +406,18 @@
  #define CS_ECM_RINGBUFFER_MAX	0x10	// max size for ECM last responsetimes ringbuffer. Keep this set to power of 2 values!
  
