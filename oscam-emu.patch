@@ -1,8 +1,8 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 8770a186..02c6c8d5 100644
+index 817684cb..0ef2a8b5 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -524,6 +524,22 @@ endif (CONFIG_STREAMRELAY MATCHES "Y" AND NOT MODULE_STREAMRELAY EQUAL 1)
+@@ -530,6 +530,22 @@ endif (CONFIG_STREAMRELAY MATCHES "Y" AND NOT MODULE_STREAMRELAY EQUAL 1)
  # Manage config.h based on command line parameters
  # Manipulate config file based on given parameters and read unset parameters
  
@@ -25,7 +25,7 @@ index 8770a186..02c6c8d5 100644
  execute_process (COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/config.sh --show-valid OUTPUT_VARIABLE config_vars_string OUTPUT_STRIP_TRAILING_WHITESPACE)
  string(REGEX MATCHALL "[A-Z0-9_]+" config_vars ${config_vars_string})
  
-@@ -869,6 +885,24 @@ endif( HAVE_LIBRT OR HAVE_LIBRT_STATIC)
+@@ -875,6 +891,24 @@ endif( HAVE_LIBRT OR HAVE_LIBRT_STATIC)
  
  #--------------------------------------------------------------------------------
  
@@ -50,7 +50,7 @@ index 8770a186..02c6c8d5 100644
  #----------------------- installation -----------------------------
  
  file (GLOB config_files "${CMAKE_CURRENT_SOURCE_DIR}/Distribution/oscam.*")
-@@ -981,4 +1015,11 @@ if (HAVE_LIBDVBCSA)
+@@ -987,4 +1021,11 @@ if (HAVE_LIBDVBCSA)
  	endif(STATICLIBDVBCSA AND NOT LIBDVBCSADIR)
  endif (HAVE_LIBDVBCSA)
  
@@ -111,7 +111,7 @@ index 3d333a93..08b173ed 100644
  	  1 = send keepalive messages to keep connection to remote CCCam server up, default:0
  
 diff --git a/Makefile b/Makefile
-index e9a00959..473b62ab 100644
+index 9eaad236..bf74a46a 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -32,6 +32,9 @@ ifeq "$(shell ./config.sh --enabled WITH_SSL)" "Y"
@@ -124,7 +124,7 @@ index e9a00959..473b62ab 100644
  ifdef USE_SSL
  	override USE_LIBCRYPTO=1
  endif
-@@ -363,6 +366,32 @@ SRC-$(CONFIG_CS_CACHEEX) += module-cccam-cacheex.c
+@@ -364,6 +367,32 @@ SRC-$(CONFIG_CS_CACHEEX) += module-cccam-cacheex.c
  SRC-$(CONFIG_MODULE_CCCAM) += module-cccam.c
  SRC-$(CONFIG_MODULE_CCCSHARE) += module-cccshare.c
  SRC-$(CONFIG_MODULE_CONSTCW) += module-constcw.c
@@ -418,7 +418,7 @@ index 8b6c309a..35f38c6c 100644
  
  #endif
 diff --git a/globals.h b/globals.h
-index 4e5781ad..0bb166b6 100644
+index 6798b5ad..7e432683 100644
 --- a/globals.h
 +++ b/globals.h
 @@ -368,9 +368,9 @@
@@ -431,7 +431,7 @@ index 4e5781ad..0bb166b6 100644
 -#define BOARD_URL				"https://board.streamboard.tv"
 +#define BOARD_URL				"https://github.com/oscam-mirror/oscam-emu/discussions"
  #ifndef CS_VERSION
- #define CS_VERSION				"2.24.11-11847"
+ #define CS_VERSION				"2.24.11-11848"
  #endif
 @@ -406,14 +406,18 @@
  #define CS_ECM_RINGBUFFER_MAX	0x10	// max size for ECM last responsetimes ringbuffer. Keep this set to power of 2 values!
