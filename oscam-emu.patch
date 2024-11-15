@@ -1,5 +1,5 @@
-patch version: 2.24.11-11850-802 (0904678c)
-patch date: 2024-11-14 18:38:09
+patch version: 2.24.11-11851-802 (6f6693e9)
+patch date: 2024-11-15 03:04:49
 ---
 diff --git a/CMakeLists.txt b/CMakeLists.txt
 index eb09fcd3..44980840 100644
@@ -421,7 +421,7 @@ index 8b6c309a..35f38c6c 100644
  
  #endif
 diff --git a/globals.h b/globals.h
-index 1722a772..58019e82 100644
+index 3b02d873..c6572037 100644
 --- a/globals.h
 +++ b/globals.h
 @@ -368,9 +368,9 @@
@@ -434,7 +434,7 @@ index 1722a772..58019e82 100644
 -#define BOARD_URL				"https://board.streamboard.tv"
 +#define BOARD_URL				"https://github.com/oscam-mirror/oscam-emu/discussions"
  #ifndef CS_VERSION
- #define CS_VERSION				"2.24.11-11850"
+ #define CS_VERSION				"2.24.11-11851"
  #endif
 @@ -406,14 +406,18 @@
  #define CS_ECM_RINGBUFFER_MAX	0x10	// max size for ECM last responsetimes ringbuffer. Keep this set to power of 2 values!
@@ -478,7 +478,7 @@ index 1722a772..58019e82 100644
  } S_ENTITLEMENT;
  
  struct s_client;
-@@ -1752,6 +1764,7 @@ struct s_reader										// contains device info, reader info and card info
+@@ -1757,6 +1769,7 @@ struct s_reader										// contains device info, reader info and card info
  	char			cc_build[7];					// cccam build number
  	int8_t			cc_maxhops;						// cccam max distance
  	int8_t			cc_mindown;						// cccam min downhops
@@ -486,7 +486,7 @@ index 1722a772..58019e82 100644
  	uint32_t		cc_id;
  	int8_t			cc_keepalive;
  	int8_t			cc_hop;							// For non-cccam reader: hop for virtual cards
-@@ -1928,6 +1941,11 @@ struct s_reader										// contains device info, reader info and card info
+@@ -1933,6 +1946,11 @@ struct s_reader										// contains device info, reader info and card info
  #endif
  #ifdef MODULE_GHTTP
  	uint8_t			ghttp_use_ssl;
@@ -498,7 +498,7 @@ index 1722a772..58019e82 100644
  #endif
  	uint8_t			cnxlastecm;						// == 0 - last ecm has not been paired ecm, > 0 last ecm has been paired ecm
  	LLIST			*emmstat;						// emm stats
-@@ -2453,6 +2471,10 @@ struct s_config
+@@ -2458,6 +2476,10 @@ struct s_config
  #else
  #define DEFAULT_STREAM_SOURCE_PORT 8001 //Enigma2
  #endif
@@ -509,7 +509,7 @@ index 1722a772..58019e82 100644
  #endif
  
  	int32_t			max_cache_time;					// seconds ecms are stored in ecmcwcache
-@@ -2638,12 +2660,18 @@ bool boxtype_is(const char *boxtype);
+@@ -2643,12 +2665,18 @@ bool boxtype_is(const char *boxtype);
  bool boxname_is(const char *boxname);
  const char *boxtype_get(void);
  const char *boxname_get(void);
@@ -528,7 +528,7 @@ index 1722a772..58019e82 100644
  static inline bool caid_is_betacrypt(uint16_t caid) { return caid >> 8 == 0x17; }
  static inline bool caid_is_nagra(uint16_t caid) { return caid >> 8 == 0x18; }
  static inline bool caid_is_bulcrypt(uint16_t caid) { return caid == 0x5581 || caid == 0x4AEE; }
-@@ -2651,4 +2679,8 @@ static inline bool caid_is_dre(uint16_t caid) { return caid == 0x4AE0 || caid ==
+@@ -2656,4 +2684,8 @@ static inline bool caid_is_dre(uint16_t caid) { return caid == 0x4AE0 || caid ==
  static inline bool caid_is_tongfang(uint16_t caid) { return caid == 0x4A02; }
  const char *get_cardsystem_desc_by_caid(uint16_t caid);
  
@@ -12191,7 +12191,7 @@ index 7b6395db..175595a8 100644
  	cfg.account = init_userdb();
  	init_signal();
 diff --git a/reader-common.c b/reader-common.c
-index 64aed4b1..86503bf4 100644
+index efdd19b3..2c8fc7dd 100644
 --- a/reader-common.c
 +++ b/reader-common.c
 @@ -15,6 +15,7 @@
@@ -12202,7 +12202,7 @@ index 64aed4b1..86503bf4 100644
  
  extern const struct s_cardsystem *cardsystems[];
  extern char *RDR_CD_TXT[];
-@@ -148,6 +149,18 @@ static int32_t reader_get_cardsystem(struct s_reader *reader, ATR *atr)
+@@ -150,6 +151,18 @@ static int32_t reader_get_cardsystem(struct s_reader *reader, ATR *atr)
  {
  	int32_t i;
  
