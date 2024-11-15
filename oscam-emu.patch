@@ -1,5 +1,5 @@
-patch version: 2.24.11-11851-802 (6f6693e9)
-patch date: 2024-11-15 03:04:49
+patch version: 2.24.11-11852-802 (12642b43)
+patch date: 2024-11-15 18:44:52
 ---
 diff --git a/CMakeLists.txt b/CMakeLists.txt
 index eb09fcd3..44980840 100644
@@ -421,7 +421,7 @@ index 8b6c309a..35f38c6c 100644
  
  #endif
 diff --git a/globals.h b/globals.h
-index 3b02d873..c6572037 100644
+index 82ac0ea4..83ff8d07 100644
 --- a/globals.h
 +++ b/globals.h
 @@ -368,9 +368,9 @@
@@ -434,7 +434,7 @@ index 3b02d873..c6572037 100644
 -#define BOARD_URL				"https://board.streamboard.tv"
 +#define BOARD_URL				"https://github.com/oscam-mirror/oscam-emu/discussions"
  #ifndef CS_VERSION
- #define CS_VERSION				"2.24.11-11851"
+ #define CS_VERSION				"2.24.11-11852"
  #endif
 @@ -406,14 +406,18 @@
  #define CS_ECM_RINGBUFFER_MAX	0x10	// max size for ECM last responsetimes ringbuffer. Keep this set to power of 2 values!
@@ -12089,7 +12089,7 @@ index cadd2de9..9ded1fbd 100644
  		cs_log_dbg(D_TRACE, "warning: ecm with null odd/even byte from %s", (check_client(er->client) ? er->client->account->usr : "-"));
  		er->rc = E_INVALID;
 diff --git a/oscam-emm.c b/oscam-emm.c
-index 848fa341..65ba29cc 100644
+index 7508a0ff..dc85a35c 100644
 --- a/oscam-emm.c
 +++ b/oscam-emm.c
 @@ -40,6 +40,7 @@ static int8_t cs_emmlen_is_blocked(struct s_reader *rdr, int16_t len)
@@ -12100,7 +12100,7 @@ index 848fa341..65ba29cc 100644
  
  	//copied and enhanced from module-dvbapi.c
  	//dvbapi_start_emm_filter()
-@@ -233,6 +234,24 @@ int32_t emm_reader_match(struct s_reader *reader, uint16_t caid, uint32_t provid
+@@ -237,6 +238,24 @@ int32_t emm_reader_match(struct s_reader *reader, uint16_t caid, uint32_t provid
  		rdr_log_dbg(reader, D_EMM, "reader auprovid = %06X fixup to %06X (ignoring last digit)", reader->auprovid, prid);
  	}
  
