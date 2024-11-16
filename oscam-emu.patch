@@ -1,5 +1,5 @@
-patch version: 2.24.11-11852-802 (12642b43)
-patch date: 2024-11-15 18:44:52
+patch version: 2.24.11-11853-802 (1feb2c6b)
+patch date: 2024-11-16 03:02:41
 ---
 diff --git a/CMakeLists.txt b/CMakeLists.txt
 index eb09fcd3..44980840 100644
@@ -114,7 +114,7 @@ index 3d333a93..08b173ed 100644
  	  1 = send keepalive messages to keep connection to remote CCCam server up, default:0
  
 diff --git a/Makefile b/Makefile
-index 0f5c86c9..82c97b2f 100644
+index f66a27f2..8f8d98b4 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -32,6 +32,9 @@ ifeq "$(shell ./config.sh --enabled WITH_SSL)" "Y"
@@ -421,7 +421,7 @@ index 8b6c309a..35f38c6c 100644
  
  #endif
 diff --git a/globals.h b/globals.h
-index 82ac0ea4..83ff8d07 100644
+index d1c7ebc7..51492636 100644
 --- a/globals.h
 +++ b/globals.h
 @@ -368,9 +368,9 @@
@@ -434,7 +434,7 @@ index 82ac0ea4..83ff8d07 100644
 -#define BOARD_URL				"https://board.streamboard.tv"
 +#define BOARD_URL				"https://github.com/oscam-mirror/oscam-emu/discussions"
  #ifndef CS_VERSION
- #define CS_VERSION				"2.24.11-11852"
+ #define CS_VERSION				"2.24.11-11853"
  #endif
 @@ -406,14 +406,18 @@
  #define CS_ECM_RINGBUFFER_MAX	0x10	// max size for ECM last responsetimes ringbuffer. Keep this set to power of 2 values!
