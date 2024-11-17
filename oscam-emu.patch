@@ -1,5 +1,5 @@
-patch version: 2.24.11-11853-802 (1feb2c6b)
-patch date: 2024-11-16 03:02:41
+patch version: 2.24.11-11854-802 (2ccef9d4)
+patch date: 2024-11-17 12:19:57 UTC (+00:00)
 ---
 diff --git a/CMakeLists.txt b/CMakeLists.txt
 index eb09fcd3..44980840 100644
@@ -328,7 +328,7 @@ index f48ca1da..1139180d 100644
  //#define WITH_NEUTRINO 1
  #define READ_SDT_CHARSETS 1
 diff --git a/config.sh b/config.sh
-index 70ca71ad..65b44bdb 100755
+index 70ca71ad..83e3c948 100755
 --- a/config.sh
 +++ b/config.sh
 @@ -1,6 +1,6 @@
@@ -399,7 +399,7 @@ index 70ca71ad..65b44bdb 100755
  		2> ${tempfile}
  
  	opt=${?}
-@@ -897,7 +904,8 @@ do
+@@ -897,11 +904,12 @@ do
  	;;
  	'-v'|'--oscam-version')
  		version=`grep '^#define CS_VERSION' globals.h | cut -d\" -f2`
@@ -409,6 +409,11 @@ index 70ca71ad..65b44bdb 100755
  		break
  	;;
  	'-c'|'--oscam-commit')
+-		sha=`git log 2>/dev/null | sed -n 1p | cut -d ' ' -f2 | cut -c1-8`
++		sha=`git log --no-merges 2>/dev/null | sed -n 1p | cut -d ' ' -f2 | cut -c1-8`
+ 		echo $sha
+ 		break
+ 	;;
 diff --git a/csctapi/cardreaders.h b/csctapi/cardreaders.h
 index 8b6c309a..35f38c6c 100644
 --- a/csctapi/cardreaders.h
@@ -421,7 +426,7 @@ index 8b6c309a..35f38c6c 100644
  
  #endif
 diff --git a/globals.h b/globals.h
-index d1c7ebc7..51492636 100644
+index 6ac70974..8a2e6797 100644
 --- a/globals.h
 +++ b/globals.h
 @@ -368,9 +368,9 @@
@@ -434,7 +439,7 @@ index d1c7ebc7..51492636 100644
 -#define BOARD_URL				"https://board.streamboard.tv"
 +#define BOARD_URL				"https://github.com/oscam-mirror/oscam-emu/discussions"
  #ifndef CS_VERSION
- #define CS_VERSION				"2.24.11-11853"
+ #define CS_VERSION				"2.24.11-11854"
  #endif
 @@ -406,14 +406,18 @@
  #define CS_ECM_RINGBUFFER_MAX	0x10	// max size for ECM last responsetimes ringbuffer. Keep this set to power of 2 values!
